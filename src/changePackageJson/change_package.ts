@@ -3,7 +3,7 @@ import { Parameters } from '@src/interfaces';
 import { ColorsEnum, consoleColor } from '../colors';
 
 export default function changePackageJson(parameters: Parameters, folder: string) {
-  consoleColor('Add parameters to package.json', ColorsEnum.BLUE);
+  consoleColor('Adding parameters to a package.json', ColorsEnum.BLUE);
 
   const packageJsonPath = `${folder}/package.json`;
 
@@ -11,7 +11,6 @@ export default function changePackageJson(parameters: Parameters, folder: string
     const packageJsonData = fs.readFileSync(packageJsonPath, 'utf8');
     const packageJson = JSON.parse(packageJsonData);
 
-    // Modify the package.json keys here
     packageJson.name = parameters.name;
     packageJson.description = parameters.description;
     packageJson.author = parameters.author;

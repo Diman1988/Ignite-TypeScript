@@ -5,14 +5,10 @@ import { changeReadme } from '../changeReadme';
 import { checkConfigIsValid } from '../checkConfigIsValid';
 import { updateConfigFiles } from '../updateConfigFiles';
 import { cloneTemplate } from '../cloneTemplate';
-import { ColorsEnum, consoleColor } from '../colors';
 
 export default function run(parameters: Parameters) {
-  consoleColor('runned', ColorsEnum.BLUE);
-  consoleColor(`parameters: ${JSON.stringify(parameters)}`, ColorsEnum.BLUE);
-
   const repositoryUrl = 'https://github.com/Diman1988/npm-lib-template';
-  const folder = 'test_clone';
+  const folder = 'test_clone'; // TODO: Should be .
 
   checkNodeVersion();
   checkGitInstalled();

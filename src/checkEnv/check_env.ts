@@ -12,7 +12,7 @@ export function checkGitInstalled() {
 }
 
 export function checkNodeVersion() {
-  consoleColor(`Node.js version: ${process.version}`, ColorsEnum.BLUE);
+  consoleColor(`Node.js version: ${process.version}`, ColorsEnum.GREEN);
 
   if (lt(process.version, '18.0.0')) {
     consoleColor('Please update your Node.js version to 18.0.0 or higher', ColorsEnum.RED);
@@ -25,7 +25,10 @@ export function checkYarnInstalled() {
     execSync('yarn --version');
     consoleColor('Yarn is installed', ColorsEnum.GREEN);
   } catch (error) {
-    consoleColor('Yarn is not installed', ColorsEnum.RED);
+    consoleColor(
+      'Yarn is not installed. Add yarn in your system npm install -g yarn and reload a terminal',
+      ColorsEnum.RED,
+    );
     process.exit(1);
   }
 }

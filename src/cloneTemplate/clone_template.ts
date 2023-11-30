@@ -8,7 +8,6 @@ export default function cloneTemplate(url: string, folder: string) {
     execSync(`git clone ${url} ${folder}`, { stdio: 'inherit' });
     consoleColor(`Repository cloned successfully to ${folder}`, ColorsEnum.GREEN);
   } catch (error) {
-    consoleColor(`Error cloning repository`, ColorsEnum.RED);
     consoleColor(`${error}`, ColorsEnum.RED);
   }
 }
