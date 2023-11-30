@@ -1,30 +1,29 @@
-# npm-lib-template
+# Ignite-TypeScript (IgniTS)
 
-This Webpack-based template is designed to streamline the setup process for developers looking to create a library configured for both ESNext and CommonJS modules. It's an ideal starting point for building reusable JavaScript libraries with modern syntax and module support, catering to diverse development environments.
+IgniTS is a CLI tool that simplifies initializing TypeScript libraries using the [npm-lib-template](https://github.com/Diman1988/npm-lib-template). It automates the setup process, allowing you to quickly create projects with essential configurations.
 
 ## Features
 
-- Pre-configured Webpack setup for ESNext and CommonJS output.
-- TypeScript support with separate configurations for different module types.
-- Clear directory structure with dedicated `dist` folders for each module type.
-- Sample `README.md` and `LICENSE` included.
+- Quick project initialization.
+- Automated configuration of the [npm-lib-template](https://github.com/Diman1988/npm-lib-template).
+- User-friendly prompts for basic library information.
 
-## Usage
+## Installation and Usage
 
-To get started:
+Run IgniTS directly with `npx`:
 
-1. Clone the template repository.
-2. Install dependencies with `yarn install`.
-3. Run the build scripts using `yarn build`.
+```bash
+npx ignits init
+```
 
-This template is designed to be flexible, allowing you to tailor it further to your specific library requirements.
+Answer a few prompts to configure your library, and IgniTS will set up the npm-lib-template accordingly.
 
-## Contributing
+Contributing
+Contributions to enhance IgniTS's functionality are welcome. Adhere to coding standards and include tests for new features.
 
-Contributions to improve the template are welcome. Please ensure to follow the existing coding style and add unit tests for any new or changed functionality.
+License
+Released under MIT License. See LICENSE for details.
 
-## License
+Get started with your TypeScript library project effortlessly!
 
-Released under the ISC License. See the `LICENSE` file for details.
-
-Feel free to use this template to kickstart your library development with the latest Webpack features and best practices for module creation.
+GitHub Repository
