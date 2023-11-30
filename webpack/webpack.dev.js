@@ -20,7 +20,7 @@ module.exports = [
       ],
     },
     output: {
-      filename: '[name].cjs.lib.dev.js',
+      filename: 'kots.dev.js',
       path: path.resolve(__dirname, '..', 'dist/cjs'),
       libraryTarget: 'commonjs2',
       chunkFormat: 'commonjs',

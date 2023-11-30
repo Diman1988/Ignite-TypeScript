@@ -15,9 +15,25 @@ export default function changePackageJson(parameters: Parameters, folder: string
     packageJson.name = parameters.name;
     packageJson.description = parameters.description;
     packageJson.author = parameters.author;
-    packageJson.repository = parameters.repository;
-    packageJson.bugs = parameters.bugs;
-    packageJson.homepage = parameters.homepage;
+
+    if (parameters.repository) {
+      packageJson.repository = parameters.repository;
+    } else {
+      delete packageJson.repository;
+    }
+
+    if (parameters.bugs.length > 0) {
+      packageJson.bugs = parameters.bugs;
+    } else {
+      delete packageJson.bugs;
+    }
+
+    if (parameters.homepage.length > 0) {
+      packageJson.homepage = parameters.homepage;
+    } else {
+      delete packageJson.homepage;
+    }
+
     packageJson.license = 'MIT';
 
     fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));

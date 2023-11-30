@@ -45,8 +45,12 @@ yargs.command(
       {
         type: 'input',
         name: 'repository',
-        message: 'What is the package repository?',
+        message: 'What is the package repository? (enter for skip)',
         validate(input: string) {
+          if (input === '') {
+            return true;
+          }
+
           const isValid = /^(ftp|http|https):\/\/[^ "]+$/.test(input);
           return isValid || 'The repository should be a valid URL';
         },
@@ -54,8 +58,12 @@ yargs.command(
       {
         type: 'input',
         name: 'bugs',
-        message: 'What is the package bugs?',
+        message: 'Where should users report bugs? (enter for skip)',
         validate(input: string) {
+          if (input === '') {
+            return true;
+          }
+
           const isValid = /^(ftp|http|https):\/\/[^ "]+$/.test(input);
           return isValid || 'The bugs field should be a valid URL';
         },
@@ -63,8 +71,12 @@ yargs.command(
       {
         type: 'input',
         name: 'homepage',
-        message: 'What is the package homepage?',
+        message: 'What is the package homepage? (enter for skip)',
         validate(input: string) {
+          if (input === '') {
+            return true;
+          }
+
           const isValid = /^(ftp|http|https):\/\/[^ "]+$/.test(input);
           return isValid || 'The homepage field should be a valid URL';
         },
@@ -80,7 +92,7 @@ yargs.command(
     }>(questions);
 
     consoleColor(`Initializing a new package with name: ${answers.name}`, ColorsEnum.BLUE);
-    // Дальнейшая логика на основе ответов пользователя
+
     run(answers);
   },
 );
