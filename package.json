@@ -1,14 +1,16 @@
 {
-  "name": "kots",
+  "name": "ignits",
   "version": "0.1.0",
-  "description": "Kick Off TypeScript is a CLI to initialize template for creating libraries with ES6 and CommonJS modules using Webpack.",
-  "main": "dist/cjs/kots.js",
+  "description": "Ignite TypeScript is a CLI to initialize template for creating libraries with ES6 and CommonJS modules using Webpack.",
+  "main": "dist/ignits.js",
   "scripts": {
     "clean": "node scripts/clean-dist.js",
     "build": "yarn lint && yarn format && yarn test && yarn build:prod",
     "build:prod": "yarn clean && webpack --config webpack/webpack.prod.js",
     "build:dev": "yarn clean && webpack --config webpack/webpack.dev.js && yarn postbuild",
     "postbuild": "node scripts/clean-package.js && node scripts/clean-maps.js && node scripts/license.js",
+    "prepublish": "yarn build",
+    "publish": "npm publish",
     "format": "prettier --check src",
     "format:fix": "prettier --write src",
     "lint": "eslint src --ext .ts",
@@ -18,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Diman1988/Kick-Off-TypeScript.git"
+    "url": "git+https://github.com/Diman1988/Ignite-TypeScript.git"
   },
   "keywords": [
     "npm",
@@ -35,9 +37,9 @@
   "license": "MIT",
   "readme": "./README.md",
   "bugs": {
-    "url": "https://github.com/Diman1988/Kick-Off-TypeScript/issues"
+    "url": "https://github.com/Diman1988/Ignite-TypeScript/issues"
   },
-  "homepage": "https://github.com/Diman1988/Kick-Off-TypeScript#readme",
+  "homepage": "https://github.com/Diman1988/Ignite-TypeScript#readme",
   "dependencies": {
     "inquirer": "^9.2.12",
     "yargs": "^17.7.2",

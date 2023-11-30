@@ -20,8 +20,8 @@ module.exports = [
       ],
     },
     output: {
-      filename: 'kots.js',
-      path: path.resolve(__dirname, '..', 'dist/cjs'),
+      filename: 'ignits.js',
+      path: path.resolve(__dirname, '..', 'dist'),
       libraryTarget: 'commonjs2',
     },
     devtool: 'source-map',

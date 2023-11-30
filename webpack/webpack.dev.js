@@ -20,8 +20,8 @@ module.exports = [
       ],
     },
     output: {
-      filename: 'kots.dev.js',
-      path: path.resolve(__dirname, '..', 'dist/cjs'),
+      filename: 'ignits.dev.js',
+      path: path.resolve(__dirname, '..', 'dist'),
       libraryTarget: 'commonjs2',
       chunkFormat: 'commonjs',
     },
