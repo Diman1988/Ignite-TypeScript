@@ -13,32 +13,6 @@ module.exports = [
           use: {
             loader: 'ts-loader',
             options: {
-              configFile: 'tsconfig.esm.json',
-            },
-          },
-        },
-      ],
-    },
-    output: {
-      filename: 'bundle.lib.esm.js',
-      path: path.resolve(__dirname, '..', 'dist/esm'),
-      libraryTarget: 'module',
-    },
-    experiments: {
-      outputModule: true,
-    },
-    devtool: 'source-map',
-  }),
-  merge(common, {
-    mode: 'production',
-    module: {
-      rules: [
-        {
-          test: /\.ts$/,
-          exclude: /node_modules/,
-          use: {
-            loader: 'ts-loader',
-            options: {
               configFile: 'tsconfig.cjs.json',
             },
           },
@@ -46,7 +20,7 @@ module.exports = [
       ],
     },
     output: {
-      filename: 'bundle.lib.cjs.js',
+      filename: '[name].lib.cjs.js',
       path: path.resolve(__dirname, '..', 'dist/cjs'),
       libraryTarget: 'commonjs2',
     },
