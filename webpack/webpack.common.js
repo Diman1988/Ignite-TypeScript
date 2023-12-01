@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   target: 'node',
@@ -19,4 +20,9 @@ module.exports = {
   externals: {
     yargs: 'yargs',
   },
+  plugins: [
+    new CopyPlugin({
+      patterns: [{ from: 'README.md', to: 'README.md' }],
+    }),
+  ],
 };

@@ -1,7 +1,30 @@
 {
   "name": "ignits",
-  "version": "0.1.4",
+  "version": "0.1.2",
   "description": "Ignite TypeScript is a CLI to initialize template for creating libraries with ES6 and CommonJS modules using Webpack.",
+  "main": "dist/ignits.js",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "clean": "node scripts/clean-dist.js",
+    "build": "yarn lint && yarn format && yarn test && yarn build:prod",
+    "build:prod": "yarn clean && webpack --config webpack/webpack.prod.js",
+    "build:dev": "yarn clean && webpack --config webpack/webpack.dev.js && yarn postbuild",
+    "postbuild": "node scripts/clean-package.js && node scripts/clean-maps.js && node scripts/license.js",
+    "prepublic": "yarn build",
+    "public": "npm publish",
+    "format": "prettier --check src",
+    "format:fix": "prettier --write src",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "test": "jest --coverage --passWithNoTests",
+    "start": "webpack --watch --config webpack/webpack.dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diman1988/Ignite-TypeScript.git"
+  },
   "keywords": [
     "npm",
     "library",
@@ -14,36 +37,12 @@
     "TypeScript"
   ],
   "author": "Diman1988",
-  "readme": "README.md",
-  "main": "dist/ignits.js",
-  "files": [
-    "dist/*"
-  ],
-  "bin": "./dist/ignits.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Diman1988/Ignite-TypeScript.git"
-  },
+  "license": "MIT",
+  "readme": "./README.md",
   "bugs": {
     "url": "https://github.com/Diman1988/Ignite-TypeScript/issues"
   },
   "homepage": "https://github.com/Diman1988/Ignite-TypeScript#readme",
-  "license": "MIT",
-  "scripts": {
-    "clean": "node scripts/clean-dist.js",
-    "build": "yarn lint && yarn format && yarn test && yarn build:prod",
-    "build:prod": "yarn clean && webpack --config webpack/webpack.prod.js",
-    "build:dev": "yarn clean && webpack --config webpack/webpack.dev.js && yarn postbuild",
-    "postbuild": "node scripts/clean-package.js && node scripts/clean-maps.js && node scripts/license.js",
-    "prepublic": "yarn build",
-    "public": "cd dist && npm publish",
-    "format": "prettier --check src",
-    "format:fix": "prettier --write src",
-    "lint": "eslint src --ext .ts",
-    "lint:fix": "eslint src --ext .ts --fix",
-    "test": "jest --coverage --passWithNoTests",
-    "start": "webpack --watch --config webpack/webpack.dev.js"
-  },
   "dependencies": {
     "inquirer": "^9.2.12",
     "semver": "7.5.4",
@@ -56,7 +55,6 @@
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "@typescript-eslint/parser": "^6.13.1",
     "assert": "^2.1.0",
-    "copy-webpack-plugin": "^11.0.0",
     "eslint": "^8.54.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.0.0",

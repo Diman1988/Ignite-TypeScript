@@ -13,6 +13,9 @@ function cleanPackageJson() {
 
     const packageJson = JSON.parse(data);
 
+    packageJson.main = 'ignits.js';
+    packageJson.bin = 'ignits.js';
+    delete packageJson.files;
     delete packageJson.scripts;
     delete packageJson.devDependencies;
 
@@ -26,4 +29,19 @@ function cleanPackageJson() {
   });
 }
 
+function cleanUpUnnecessaryFiles() {
+  consoleColor('Cleaning unnecessary files', 'blue');
+
+  const filePath = path.join(__dirname, '..', 'dist', 'ignits.js.LICENSE.txt');
+
+  fs.unlink(filePath, (err) => {
+    if (err) {
+      console.error(`Error while deleting ${filePath}.`, err);
+    } else {
+      console.log(`${filePath} was deleted successfully.`);
+    }
+  });
+}
+
 cleanPackageJson();
+cleanUpUnnecessaryFiles();
