@@ -9,7 +9,7 @@ function cleanPackageJson() {
   fs.readFile(originalPath, 'utf8', (err, data) => {
     if (err) throw err;
 
-    consoleColor('Creating package.json for build', 'green');
+    consoleColor('Creating package.json for build...', 'green');
 
     const packageJson = JSON.parse(data);
 
@@ -30,7 +30,7 @@ function cleanPackageJson() {
 }
 
 function cleanUpUnnecessaryFiles() {
-  consoleColor('Cleaning unnecessary files', 'blue');
+  consoleColor('Cleaning unnecessary files...', 'blue');
 
   const filePath = path.join(__dirname, '..', 'dist', 'ignits.js.LICENSE.txt');
 

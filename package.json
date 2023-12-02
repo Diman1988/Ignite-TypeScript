@@ -1,6 +1,6 @@
 {
   "name": "ignits",
-  "version": "0.1.4",
+  "version": "0.1.9",
   "description": "Ignite TypeScript is a CLI to initialize template for creating libraries with ES6 and CommonJS modules using Webpack.",
   "keywords": [
     "npm",
@@ -34,7 +34,8 @@
     "build": "yarn lint && yarn format && yarn test && yarn build:prod",
     "build:prod": "yarn clean && webpack --config webpack/webpack.prod.js",
     "build:dev": "yarn clean && webpack --config webpack/webpack.dev.js && yarn postbuild",
-    "postbuild": "node scripts/clean-package.js && node scripts/clean-maps.js && node scripts/license.js",
+    "postbuild": "node scripts/clean-package.js && node scripts/clean-maps.js && node scripts/license.js && yarn addshebang",
+    "addshebang": "echo '#!/usr/bin/env node' | cat - dist/ignits.js > temp && mv temp dist/ignits.js",
     "prepublic": "yarn build",
     "public": "cd dist && npm publish",
     "format": "prettier --check src",
