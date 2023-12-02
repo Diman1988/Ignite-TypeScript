@@ -8,7 +8,7 @@ import { cloneTemplate } from '../cloneTemplate';
 
 export default function run(parameters: Parameters) {
   const repositoryUrl = 'https://github.com/Diman1988/npm-lib-template';
-  const folder = 'test_clone'; // TODO: Should be .
+  const folder = '.';
 
   checkNodeVersion();
   checkGitInstalled();
